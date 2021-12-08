@@ -1,8 +1,11 @@
 .btn {
-    font-size: 12px;
-    color: white;
-    display: grid;
+    display: block;
+    justify-content: end ;
+    font-size: 15px;
+    color:black;
     text-align: center;
     align-items: center;
+    border-radius: 15px;
+
 
 }

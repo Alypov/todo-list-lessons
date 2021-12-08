@@ -1,0 +1,18 @@
+.main-wrapper {
+    background-color: #fb8b8a;
+    border: none;
+    margin: auto;
+}
+
+.todo-items-wrapper {
+    background-color:#fff;
+    background-size: cover;
+    display: inline-table;
+    text-align: start;
+    font-size: 25px;
+    width: 350px;
+    height: 140px;
+    border-radius: 15px;
+
+
+}
