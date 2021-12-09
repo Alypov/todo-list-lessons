@@ -36,10 +36,10 @@ const TodoList = () => {
     <div className="main-wrapper">
       <div className="total-count"></div>
       <div className="remain-count"></div>
-      <div onClick={onClickHanlder} style={{ border: "2px solid black" }}>
+      {/* <div onClick={onClickHanlder} style={{ border: "2px solid black" }}>
         CLICK
       </div>
-      <div>{counter.count}</div>
+      <div>{counter.count}</div> */}
 
       <input type="text" onChange={(event) => inputOnChangeHanlder(event)} />
       <Button />

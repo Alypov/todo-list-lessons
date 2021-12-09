@@ -1,0 +1,16 @@
+.todo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  width: 100%;
+}
+
+.left-section{
+    display: flex;
+    flex-grow: 3;
+}
+
+input{
+    margin-right: 20px ;
+}
