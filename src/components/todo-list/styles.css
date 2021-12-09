@@ -1,0 +1,13 @@
+.main-wrapper {
+    background-color: #fb8b8a;
+    border: none;
+    margin: 50%;
+}
+
+.todo-items-wrapper {
+    background-color:#fff;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 140px;
+}
