@@ -33,10 +33,14 @@ const TodoList = () => {
 
   return (
     <div className="main-wrapper">
+
        <div onClick={onClickHanlder} style={{ border: "2px solid black" }}>
+      <div className="total-count"></div>
+      <div className="remain-count"></div>
+      {/* <div onClick={onClickHanlder} style={{ border: "2px solid black" }}>
         CLICK
       </div>
-      <div>{counter.count}</div>
+      <div>{counter.count}</div> */}
 
       <div className="todo-items-wrapper">
         <div className="total-count">4 Tasks</div>

@@ -1,13 +1,16 @@
 import React from 'react';
 import Button from '../button/button';
-// import './styles.css';
+import './styles.css';
 
 const TodoItem = ({ todoText }) => {
   return (
-    <div className="todo-items-wrapper">
+    <div className="todo-wrapper">
+      <div className='left-section'> 
+
       <input type="checkbox" className="" value="true"></input>
       <div>{todoText}</div>
-      <Button />
+      </div>
+      <Button text='Delete' type='long'/>
     </div>
   );
 };
