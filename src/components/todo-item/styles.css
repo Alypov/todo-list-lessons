@@ -5,12 +5,28 @@
   height: 70px;
   width: 100%;
 }
-
-.left-section{
-    display: flex;
-    flex-grow: 3;
+.total-count {
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content:left;
+  width: 300px;
+  margin: 2px;
+  font: 2em sans-serif;
+}
+.remain-count {
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: right;
+  width: 300px;
+  margin: 2px;
+  font: 1em sans-serif;
 }
 
-input{
-    margin-right: 20px ;
+.left-section {
+  display: flex;
+  flex-grow: 3;
+}
+
+input {
+  margin-right: 20px;
 }
