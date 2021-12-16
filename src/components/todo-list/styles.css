@@ -1,4 +1,7 @@
 .main-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #fb8b8a;
   border: none;
   width: 100vw;
@@ -11,10 +14,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  left: 35%;
-  top: 15%;
-  width: 30%;
+  width: 100%;
+  max-width: 600px;
+  min-width: 450px;
   height: 450px;
   border-radius: 20px;
   padding: 5px;
