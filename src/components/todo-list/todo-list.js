@@ -12,21 +12,20 @@ const todos = [
 // 1. Save todos in localStorage
 // 2. Hitting 'save' button trigger adding new todo to todo's array.
 // 3. Get todos from localStorage
-// 4. Make styles according to mockup. 
+// 4. Make styles according to mockup.
 
 // * counter - increment, decrement, reset
 
 const TodoList = () => {
   const [inputValue, setInputValue] = useState("");
-  const [counter, setCounter] = useState({count: 0, step: 5});
+  const [counter, setCounter] = useState({ count: 0, step: 5 });
 
   const onClickHanlder = () => {
     setCounter((prev) => ({
       ...prev,
-      count: prev.count + prev.step
+      count: prev.count + prev.step,
     }));
   };
-
 
   const inputOnChangeHanlder = (e) => {
     setInputValue(e.target.value);
@@ -34,13 +33,13 @@ const TodoList = () => {
 
   return (
     <div className="main-wrapper">
-      
-      {/* <div onClick={onClickHanlder} style={{ border: "2px solid black" }}>
-        CLICK
-      </div>
-      <div>{counter.count}</div> */}
+
+       <div onClick={onClickHanlder} style={{ border: "2px solid black" }}>
+      <div className="total-count"></div>
+      <div className="remain-count"></div>
 
       <div className="todo-items-wrapper">
+
       <div className="total-count">4 Tasks</div>
       <div className="remain-count">4 Remain</div>
         {todos.map((item) => (
@@ -49,6 +48,13 @@ const TodoList = () => {
               <input type="text" placeholder="Add Todo" onChange={(event) => inputOnChangeHanlder(event)} />
       <Button />
 
+        <div className="total-count">4 Tasks</div>
+        <div className="remain-count">4 Remain</div>
+        {todos.map((item) => (
+          <TodoItem key={item.id} todoText={item.text} />
+        ))}
+        <input type="text" onChange={(event) => inputOnChangeHanlder(event)} />
+        <Button />
       </div>
     </div>
   );
