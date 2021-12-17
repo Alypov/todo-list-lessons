@@ -12,21 +12,15 @@ const todos = [
 const TodoList = () => {
   const [inputValue, setInputValue] = useState('');
 
-  console.log('imput ->>', inputValue)
+  console.log('imput ->>', inputValue);
 
   const inputOnChangeHanlder = (e) => {
     setInputValue(e.target.value);
   };
 
-
   // Clicking at ADD button I need to save todo obj to localStorage
 
-  // { text: 'inputValue', isDone: false}
-
-
-
-
-
+  // {id: '1' text: 'inputValue', isDone: false}
 
   return (
     <div className="main-wrapper">
@@ -38,8 +32,11 @@ const TodoList = () => {
         {todos.map((item) => (
           <TodoItem key={item.id} todoText={item.text} />
         ))}
-        <input type="text" placeholder="Add Todo" onChange={(event) => inputOnChangeHanlder(event)} />
-        <Button type='short' text='Add' />
+
+        <div className="input-section-wrapper">
+          <input className='input' type="text" placeholder="Add Todo" onChange={(event) => inputOnChangeHanlder(event)} />
+          <Button type="short" text="Add" />
+        </div>
       </div>
     </div>
   );
