@@ -7,7 +7,7 @@ const TodoItem = ({ todoText }) => {
     <div className="todo-wrapper">
       <div className='left-section'> 
 
-      <input type="checkbox" className="" value="true"></input>
+      <input type="checkbox" className="checkbox" value="true"></input>
       <div>{todoText}</div>
       </div>
       <Button text='Delete' type='long'/>
