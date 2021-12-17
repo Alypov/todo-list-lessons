@@ -38,7 +38,7 @@ const TodoList = () => {
         {todos.map((item) => (
           <TodoItem key={item.id} todoText={item.text} />
         ))}
-        <input type="text" onChange={(event) => inputOnChangeHanlder(event)} />
+        <input type="text" placeholder="Add Todo" onChange={(event) => inputOnChangeHanlder(event)} />
         <Button type='short' text='Add' />
       </div>
     </div>

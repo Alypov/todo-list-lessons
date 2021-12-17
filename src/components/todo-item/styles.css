@@ -29,8 +29,14 @@ display: flex;
 .left-section {
   display: flex;
   flex-grow: 3;
+  font:1em sans-serif;
+  font-weight: bold;
 }
 
 input {
   margin-right: 20px;
+  border-radius: 20px;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid rgba(0,0,0,0.2);
 }
