@@ -1,30 +1,39 @@
-import React, { useState } from "react";
-import Button from "../button/button";
-import TodoItem from "../todo-item/todo-item";
-import "./styles.css";
-
-const todos = [
-  { id: 1, text: "Todo1", isDone: false },
-  { id: 2, text: "Todo2", isDone: false },
-  { id: 3, text: "Todo3", isDone: false },
-];
+import React, { useState, useEffect } from 'react';
+import Button from '../button/button';
+import TodoItem from '../todo-item/todo-item';
+import './styles.css';
 
 const TodoList = () => {
-  const [inputValue, setInputValue] = useState("");
-  //const [todos, setTodos] = useState([]);
-  
-  console.log("imput ->>", inputValue);
+  const [inputValue, setInputValue] = useState('');
+  const [currentId, setCurrentId] = useState('');
+  const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    if (!JSON.parse(localStorage.getItem('todos'))) {
+      localStorage.setItem('todos', '[]');
+    }
+    setCurrentId(JSON.parse(localStorage.getItem('todos')).length);
+    setTodos(JSON.parse(localStorage.getItem('todos')));
+  }, []);
+
+  useEffect(() => {
+    setCurrentId(JSON.parse(localStorage.getItem('todos')).length);
+  }, [todos]);
+
+  localStorage.setItem('todos', JSON.stringify(todos));
 
   const inputOnChangeHanlder = (e) => {
     setInputValue(e.target.value);
   };
 
   const addTodoOnClickHandler = () => {
-    localStorage.setItem("todos", JSON.stringify(inputValue));
+    setTodos((prev) => [...prev, { id: currentId, text: inputValue, isDone: false }]);
   };
-  // Clicking at ADD button I need to save todo obj to localStorage
-  // {id: '1' text: 'inputValue', isDone: false}
-  
+
+  // Implenent remove todo functionality.
+  // After adding new todo input field must be cleaned.
+
+
   return (
     <div className="main-wrapper">
       <div className="todo-items-wrapper">
@@ -32,17 +41,12 @@ const TodoList = () => {
           <div className="total-count">4 Tasks</div>
           <div className="remain-count">4 Remain</div>
         </div>
-        {todos.map((item) => (
-          <TodoItem key={item.id} todoText={item.text} />
+        {todos.map((item, index) => (
+          <TodoItem key={index} isDone={item.isDone} todoText={item.text} />
         ))}
 
         <div className="input-section-wrapper">
-          <input
-            className="input"
-            type="text"
-            placeholder="Add Todo"
-            onChange={(event) => inputOnChangeHanlder(event)}
-          />
+          <input className="input" type="text" placeholder="Add Todo" onChange={(event) => inputOnChangeHanlder(event)} />
           <Button type="short" text="Add" onClick={addTodoOnClickHandler} />
         </div>
       </div>
