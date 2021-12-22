@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Button from "../button/button";
 import TodoItem from "../todo-item/todo-item";
 import "./styles.css";
-import Context from "../context/context";
 
 const TodoList = () => {
   const [inputValue, setInputValue] = useState("");
@@ -36,12 +35,11 @@ const TodoList = () => {
 
   // Implenent remove todo functionality.
   // After adding new todo input field must be cleaned.
-  function removeTodo(id) {
+  const removeTodo = (id) => {
     setTodos(todos.filter(todo => todo.id !== id))
   }
 
   return (
-    <Context.Provider value={{ removeTodo }}>
       <div className="main-wrapper">
         <div className="todo-items-wrapper">
           <div className="count-wrapper">
@@ -63,7 +61,6 @@ const TodoList = () => {
           </div>
         </div>
       </div>
-    </Context.Provider>
   );
 };
 
