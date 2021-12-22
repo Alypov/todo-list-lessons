@@ -10,7 +10,7 @@ const TodoItem = ({ todoText, todoId, removeTodo}) => {
         <input type="checkbox" className="checkbox" value="true"></input>
         <div>{todoText}</div>
       </div>
-      <Button text="Delete" onClick={removeTodo(todoId)} type="long"/>
+      <Button text="Delete" onClick={() => removeTodo (todoId)} type="long"/>
     </div>
   );
 };
