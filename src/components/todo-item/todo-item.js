@@ -2,7 +2,7 @@
 import Button from "../button/button";
 import "./styles.css";
 
-const TodoItem = ({ todoText, todo}) => {
+const TodoItem = ({ todoText, todoId, removeTodo}) => {
 
   return (
     <div className="todo-wrapper">
@@ -10,7 +10,7 @@ const TodoItem = ({ todoText, todo}) => {
         <input type="checkbox" className="checkbox" value="true"></input>
         <div>{todoText}</div>
       </div>
-      <Button text="Delete" onClick={todo} type="long"/>
+      <Button text="Delete" onClick={removeTodo(todoId)} type="long"/>
     </div>
   );
 };

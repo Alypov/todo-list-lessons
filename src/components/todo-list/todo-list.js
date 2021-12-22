@@ -36,7 +36,8 @@ const TodoList = () => {
   // Implenent remove todo functionality.
   // After adding new todo input field must be cleaned.
   const removeTodo = (id) => {
-    setTodos(todos.filter(todo => todo.id !== id))
+       setTodos(todos.filter(todo => todo.id !== id))
+    
   }
 
   return (
@@ -47,7 +48,7 @@ const TodoList = () => {
             <div className="remain-count">4 Remain</div>
           </div>
           {todos.map((item, index) => (
-            <TodoItem key={index} isDone={item.isDone} todoText={item.text} />
+            <TodoItem key={index} isDone={item.isDone} todoText={item.text} removeTodo={removeTodo} todoId={item.id}/>
           ))}
 
           <div className="input-section-wrapper">
