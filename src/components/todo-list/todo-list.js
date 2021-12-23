@@ -6,18 +6,10 @@ import "./styles.css";
 const TodoList = () => {
   const [inputValue, setInputValue] = useState("");
   const [currentId, setCurrentId] = useState("");
+  const [isDone, setIsDone] = useState(false)
   const [todos, setTodos] = useState([]);
 
-const toggleTodo = (id) => {
-  setTodos(
-    todos.map(todo => {
-    if (todo.id === id) {
-      todo.completed = !todo.completed
-    }
-    return todo
-    })
-  )
-}
+
 
   useEffect(() => {
     if (!JSON.parse(localStorage.getItem("todos"))) {
@@ -40,11 +32,11 @@ const toggleTodo = (id) => {
   const addTodoOnClickHandler = () => {
     setTodos((prev) => [
       ...prev,
-      { id: currentId, text: inputValue, isDone: false },
+      { id: currentId, text: inputValue, isDone: isDone },
     ]);
   };
 
-  // Implenent remove todo functionality.
+
   // After adding new todo input field must be cleaned.
   const removeTodo = (id) => {
        setTodos(todos.filter(todo => todo.id !== id))
@@ -59,7 +51,7 @@ const toggleTodo = (id) => {
             <div className="remain-count">4 Remain</div>
           </div>
           {todos.map((item, index) => (
-            <TodoItem key={index} isDone={item.isDone} todoText={item.text} removeTodo={removeTodo} toggleTodo={toggleTodo} todoId={item.id}/>
+            <TodoItem key={index} isDone={item.isDone} setIsDone={setIsDone} todoText={item.text} removeTodo={removeTodo} todoId={item.id}/>
           ))}
 
           <div className="input-section-wrapper">
