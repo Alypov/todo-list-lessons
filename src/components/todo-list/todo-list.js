@@ -8,6 +8,17 @@ const TodoList = () => {
   const [currentId, setCurrentId] = useState("");
   const [todos, setTodos] = useState([]);
 
+const toggleTodo = (id) => {
+  setTodos(
+    todos.map(todo => {
+    if (todo.id === id) {
+      todo.completed = !todo.completed
+    }
+    return todo
+    })
+  )
+}
+
   useEffect(() => {
     if (!JSON.parse(localStorage.getItem("todos"))) {
       localStorage.setItem("todos", "[]");
@@ -48,7 +59,7 @@ const TodoList = () => {
             <div className="remain-count">4 Remain</div>
           </div>
           {todos.map((item, index) => (
-            <TodoItem key={index} isDone={item.isDone} todoText={item.text} removeTodo={removeTodo} todoId={item.id}/>
+            <TodoItem key={index} isDone={item.isDone} todoText={item.text} removeTodo={removeTodo} toggleTodo={toggleTodo} todoId={item.id}/>
           ))}
 
           <div className="input-section-wrapper">
