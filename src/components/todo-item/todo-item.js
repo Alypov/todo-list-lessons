@@ -11,7 +11,7 @@ const TodoItem = ({ todoText, todoId, removeTodo, isDone, setIsDone }) => {
   return (
     <div className="todo-wrapper">
       <div className="left-section">
-        <input type="checkbox" onClick={() => setIsDone(!isDone)}></input>
+        <input type="checkbox" onClick={() => setIsDone(!isDone)} ></input>
         <div className={isDone ? 'done' : ''}>{todoText}</div>
       </div>
       <Button text="Delete" onClick={() => removeTodo(todoId)} type="long" />
