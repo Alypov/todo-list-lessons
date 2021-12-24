@@ -6,10 +6,8 @@ import "./styles.css";
 const TodoList = () => {
   const [inputValue, setInputValue] = useState("");
   const [currentId, setCurrentId] = useState("");
-  const [isDone, setIsDone] = useState(false)
+  const [isDone, setIsDone] = useState(false);
   const [todos, setTodos] = useState([]);
-
-
 
   useEffect(() => {
     if (!JSON.parse(localStorage.getItem("todos"))) {
@@ -34,37 +32,44 @@ const TodoList = () => {
       ...prev,
       { id: currentId, text: inputValue, isDone: isDone },
     ]);
+    setInputValue("");
   };
-
 
   // After adding new todo input field must be cleaned.
   const removeTodo = (id) => {
-       setTodos(todos.filter(todo => todo.id !== id))
-    
-  }
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
 
   return (
-      <div className="main-wrapper">
-        <div className="todo-items-wrapper">
-          <div className="count-wrapper">
-            <div className="total-count">4 Tasks</div>
-            <div className="remain-count">4 Remain</div>
-          </div>
-          {todos.map((item, index) => (
-            <TodoItem key={index} isDone={item.isDone} setIsDone={setIsDone} todoText={item.text} removeTodo={removeTodo} todoId={item.id}/>
-          ))}
+    <div className="main-wrapper">
+      <div className="todo-items-wrapper">
+        <div className="count-wrapper">
+          <div className="total-count">4 Tasks</div>
+          <div className="remain-count">4 Remain</div>
+        </div>
+        {todos.map((item, index) => (
+          <TodoItem
+            key={index}
+            isDone={item.isDone}
+            setIsDone={setIsDone}
+            todoText={item.text}
+            removeTodo={removeTodo}
+            todoId={item.id}
+          />
+        ))}
 
-          <div className="input-section-wrapper">
-            <input
-              className="input"
-              type="text"
-              placeholder="Add Todo"
-              onChange={(event) => inputOnChangeHanlder(event)}
-            />
-            <Button type="short" text="Add" onClick={addTodoOnClickHandler} />
-          </div>
+        <div className="input-section-wrapper">
+          <input
+            className="input"
+            type="text"
+            placeholder="Add Todo"
+            onChange={(event) => inputOnChangeHanlder(event)}
+            value={inputValue}
+          />
+          <Button type="short" text="Add" onClick={addTodoOnClickHandler} />
         </div>
       </div>
+    </div>
   );
 };
 
